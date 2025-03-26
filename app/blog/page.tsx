@@ -1,6 +1,6 @@
 import React from "react";
 import BlogPost from './blog-post';
-import { reqUrl } from "../config";
+import { reqUrl, fetchConfig } from "../config";
 
 interface BlogPostData {
     id: number;
@@ -11,8 +11,11 @@ interface BlogPostData {
     author?: string;
 }
 
+export const dynamic = 'force-static';
+export const revalidate = 3600; // Revalidar a cada hora
+
 const Blog = async () => {
-    const req = await fetch(`${reqUrl}/posts?_field=id,slug,title`);
+    const req = await fetch(`${reqUrl}/posts?_fields=id,slug,title&per_page=20`, fetchConfig);
     const BlogPosts: BlogPostData[] = await req.json();
 
     return (
@@ -35,5 +38,14 @@ const Blog = async () => {
         </div>
     );
 };
+
+export async function generateStaticParams() {
+    const req = await fetch(`${reqUrl}/posts?_fields=slug&per_page=50`, fetchConfig);
+    const posts: { slug: string }[] = await req.json();
+
+    return posts.map((post) => ({
+        slug: post.slug
+    }));
+}
 
 export default Blog;

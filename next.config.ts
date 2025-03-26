@@ -12,8 +12,15 @@ const nextConfig: NextConfig = {
                 protocol: 'http',
                 hostname: 'contentorhouse.local',
             }
-        ]
-    }
+        ],
+        formats: ['image/avif', 'image/webp'],
+        minimumCacheTTL: 86400,
+        // unoptimized: true,
+    },
+    poweredByHeader: false,
+    compress: true,
+    // output: 'export',
+    generateEtags: false
 };
 
 export default nextConfig;

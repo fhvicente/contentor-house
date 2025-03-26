@@ -7,10 +7,8 @@ interface PageParams {
     };
 }
 
-const Page = async ({ params }: PageParams) => {
-    const resolvedParams = await params;
-    
-    const req = await fetch(`${reqUrl}/pages?_fields=id,slug,title,content&slug=${resolvedParams.slug}`);
+const Page = async ({ params }: PageParams) => {    
+    const req = await fetch(`${reqUrl}/pages?_fields=id,slug,title,content&slug=${params.slug}`);
     const pages = await req.json();
     const page = pages[0];
 
