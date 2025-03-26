@@ -1,0 +1,1 @@
+export const reqUrl = 'http://contentorhouse.local/wp-json/wp/v2';
