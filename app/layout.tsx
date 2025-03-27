@@ -27,10 +27,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body suppressHydrationWarning>
+            <body suppressHydrationWarning className="min-h-screen">
                 <Providers>
                     <Header />
-                    <main>{children}</main>
+                    {children}
                     <Footer />
                 </Providers>
             </body>
