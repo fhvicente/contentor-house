@@ -17,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({
     className = '',
     disabled = false
 }) => {
-    const styles = `py-2 px-5 text-white rounded font-semibold bg-teal-800 hover:bg-teal-950 transition-colors ${className || ''}`;
+    const styles = `py-2 px-5 text-white rounded font-semibold bg-red-900 hover:bg-red-950 transition-colors ${className || ''}`;
 
     if (href) {
         return (

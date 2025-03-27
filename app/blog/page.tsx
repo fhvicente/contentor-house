@@ -1,6 +1,7 @@
 import React from "react";
 import BlogPost from './blog-post';
 import { reqUrl, fetchConfig } from "../config";
+import SimpleHeader from '../components/simple-header';
 
 interface BlogPostData {
     id: number;
@@ -19,23 +20,26 @@ const Blog = async () => {
     const BlogPosts: BlogPostData[] = await req.json();
 
     return (
-        <div className="container mx-auto p-8">
-            <section>
-                <h1 className="text-4xl bold text-center font-bold mb-8">Blog</h1>
+        <>
+            <SimpleHeader />
+            <div className="container mx-auto p-8">
+                <section>
+                    <h1 className="text-4xl bold text-center font-bold mb-8">Blog</h1>
 
-                <div className="max-w-2xl mx-auto">
-                    {BlogPosts.map(post => (
-                        <BlogPost
-                            key={post.id}
-                            title={post.title.rendered}
-                            slug={post.slug}
-                            author="Anonymous"
-                            className="mb-4"
-                        />
-                    ))}
-                </div>
-            </section>
-        </div>
+                    <div className="max-w-2xl mx-auto">
+                        {BlogPosts.map(post => (
+                            <BlogPost
+                                key={post.id}
+                                title={post.title.rendered}
+                                slug={post.slug}
+                                author="Anonymous"
+                                className="mb-4"
+                            />
+                        ))}
+                    </div>
+                </section>
+            </div>
+        </>
     );
 };
 

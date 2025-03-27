@@ -1,7 +1,6 @@
 import React from "react";
 import { Metadata, Viewport } from "next";
 import { Providers } from './providers';
-import Header from "./components/header";
 import Footer from "./components/footer";
 import './globals.css';
 
@@ -29,7 +28,6 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body suppressHydrationWarning className="min-h-screen">
                 <Providers>
-                    <Header />
                     {children}
                     <Footer />
                 </Providers>
