@@ -1,16 +1,16 @@
 import React from "react";
 import { reqUrl, fetchConfig } from "@/app/config";
 
-interface BlogParams {
-    params: {
-        slug: string;
-    };
-}
+// Updated type definition to match NextJS page props requirements
+type PageProps = {
+    params: Promise<{ slug: string }>;
+    searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
 
 export const dynamic = 'force-static';
 export const revalidate = 3600; // Revalidar a cada hora
 
-const BlogDetails = async ({ params }: BlogParams) => {
+const BlogDetails = async ({ params }: PageProps) => {
     const resolvedParams = await params;
     
     try {

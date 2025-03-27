@@ -1,14 +1,15 @@
 import React from "react";
 import { reqUrl } from "../config";
 
-interface PageParams {
-    params: {
-        slug: string;
-    };
-}
+// Updated type definition to match NextJS page props requirements
+type PageProps = {
+    params: Promise<{ slug: string }>;
+    searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
 
-const Page = async ({ params }: PageParams) => {    
-    const req = await fetch(`${reqUrl}/pages?_fields=id,slug,title,content&slug=${params.slug}`);
+const Page = async ({ params }: PageProps) => {    
+    const resolvedParams = await params;
+    const req = await fetch(`${reqUrl}/pages?_fields=id,slug,title,content&slug=${resolvedParams.slug}`);
     const pages = await req.json();
     const page = pages[0];
 
