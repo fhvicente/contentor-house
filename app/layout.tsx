@@ -13,6 +13,7 @@ export const viewport: Viewport = {
     themeColor: '#ffffff',
     width: 'device-width',
     initialScale: 1,
+    maximumScale: 1,
 };
 
 // Desabilita o comportamento dinâmico para o layout
@@ -28,7 +29,9 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body suppressHydrationWarning className="min-h-screen">
                 <Providers>
-                    {children}
+                    <main className="flex-grow">
+                        {children}
+                    </main>
                     <Footer />
                 </Providers>
             </body>

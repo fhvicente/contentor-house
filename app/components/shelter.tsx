@@ -28,11 +28,13 @@ const ShelterList = async () => {
         const shelters: Shelter[] = await req.json();
 
         return (
-            <div className='container mx-auto p-8 pb-16' data-aos="fade-up">
-                <section>
-                    <h1 className='text-2xl bold text-center font-bold mb-8'>Shelters</h1>
-                    <h2 className='text-4xl bold text-center font-bold mb-8'>Green Housing Experts Faro</h2>
-                    <div className='grid md:grid-cols-2 lg:grid-cols-2 gap-10'>
+            <section className="py-20 bg-white">
+                <div className='container mx-auto px-4'>
+                    <h2 className='text-3xl md:text-4xl font-bold text-center mb-4'>Shelters</h2>
+                    <p className='text-center text-gray-600 mb-12 max-w-2xl mx-auto'>
+                        Green Housing Experts in Faro, Portugal
+                    </p>
+                    <div className='grid md:grid-cols-2 gap-8'>
                         {shelters.map(shelter => (
                             <CardShelter 
                                 key={shelter.id}
@@ -42,8 +44,8 @@ const ShelterList = async () => {
                             />
                         ))}
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         );
     } catch (error) {
         console.error("Error fetching shelters:", error);

@@ -1,27 +1,27 @@
 import React from "react";
 import Link from "next/link";
+import Button from "../components/button";
 
 interface BlogPostProps {
     title: string;
-    author: string;
     slug: string;
-    className?: string; // Optional className
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({
     title, 
-    author, 
-    slug, 
-    className = ""
+    slug
 }) => {
     return (
-        <div className={className}>
-            <Link href={`/blog/${slug}`} 
-            className="text-lg text-teal-800 font-semibold mb-4"
-            >
+        <div className="">
+            <p className="text-2xl m-5 mx-auto">
                 {title}
+            </p>
+            <Link href={`/blog/${slug}`}className="text-lg text-teal-800 font-semibold mb-4">
+                <Button className="cursor-pointer">Learn more</Button>
             </Link>
-            <p className="text-md">{author}</p>
+            <div className="m-5">
+                <hr />
+            </div>
         </div>
     );
 };

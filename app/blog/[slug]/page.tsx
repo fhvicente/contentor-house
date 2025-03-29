@@ -36,12 +36,12 @@ const BlogDetails = async ({ params }: PageProps) => {
         return (
             <>
                 <SimpleHeader />
-                <div className="container mx-auto p-8 pb-16">
-                    <section>
-                        <h1 className="text-4xl bold text-center font-bold mb-8">{page.title.rendered}</h1>
-                        <div className="prose prose-slate mx-auto max-w-2xl" dangerouslySetInnerHTML={{__html: page.content.rendered}} />
+                    <section className="container mx-auto p-8 pb-20 text-center">
+                        <div>
+                            <h1 className="text-4xl font-bold mb-8">{page.title.rendered}</h1>
+                            <div className="mx-auto max-w-3xl text-justify" dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
+                        </div>
                     </section>
-                </div>
             </>
         );
     } catch (error) {
