@@ -1,4 +1,4 @@
-export const reqUrl = 'http://contentorhouse.local/wp-json/wp/v2';
+export const reqUrl = 'http://contentorhouse.pt/wp-json/wp/v2';
 
 export const fetchConfig = {
   next: { 

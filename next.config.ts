@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
             },
             {
                 protocol: 'http',
-                hostname: 'contentorhouse.local',
+                hostname: 'contentorhouse.pt',
             }
         ],
         formats: ['image/avif', 'image/webp'],
