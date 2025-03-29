@@ -66,7 +66,7 @@ const ProjectDetails = async ({ params }: PageProps) => {
         return (
             <>
                 <SimpleHeader />
-                <p className="text-center">Erro ao carregar detalhes do projeto. Tente novamente mais tarde.</p>
+                <p className="text-center">Error loading project details. Please try again later.</p>
             </>
         );
     }

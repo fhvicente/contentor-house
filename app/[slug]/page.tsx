@@ -15,18 +15,18 @@ const Page = async ({ params }: PageProps) => {
     const page = pages[0];
 
     if (!page) {
-        return <p className="text-center">Página não encontrada.</p>;
+        return <p className="text-center">Page not found.</p>;
     }    
 
     return (
         <>
             <SimpleHeader />
-            <div className="container mx-auto p-8 pb-16">
-                <section>
-                    <h1 className="text-4xl bold text-center font-bold mb-8">{page.title.rendered}</h1>
-                    <div className="prose prose-slate mx-auto max-w-2xl" dangerouslySetInnerHTML={{__html: page.content.rendered}} />
-                </section>
-            </div>
+            <section className="container mx-auto p-8 pb-16 text-center">
+                <div>
+                    <h1 className="text-4xl font-bold mb-8">{page.title.rendered}</h1>
+                    <div className="mx-auto max-w-3xl text-justify wp-content" dangerouslySetInnerHTML={{__html: page.content.rendered}} />
+                </div>
+            </section>
         </>
     );
 };

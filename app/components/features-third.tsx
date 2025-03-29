@@ -12,8 +12,8 @@ interface MediaItem {
 }
 
 export default async function FeaturesThird() {
-    // ID da imagem que você quer mostrar
-    const imageId = 27; // Substitua pelo ID real da sua imagem
+    // ID of the image you want to show
+    const imageId = 27; // Replace with the real ID of your image
     
     let image: MediaItem | null = null;
     
@@ -53,7 +53,7 @@ export default async function FeaturesThird() {
                             />
                         ) : (
                             <div className="bg-teal-800 w-full h-[300px] flex items-center justify-center">
-                                <p className="text-white">Imagem não encontrada</p>
+                                <p className="text-white">Image not found</p>
                             </div>
                         )}
                     </div>

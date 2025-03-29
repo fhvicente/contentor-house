@@ -9,7 +9,7 @@ type PageProps = {
 };
 
 export const dynamic = 'force-static';
-export const revalidate = 3600; // Revalidar a cada hora
+export const revalidate = 3600; // Revalidate every hour
 
 const BlogDetails = async ({ params }: PageProps) => {
     const resolvedParams = await params;
@@ -28,7 +28,7 @@ const BlogDetails = async ({ params }: PageProps) => {
             return (
                 <>
                     <SimpleHeader />
-                    <p className="text-center py-20">Página não encontrada.</p>
+                    <p className="text-center py-20">Page not found.</p>
                 </>
             );
         }    
@@ -39,7 +39,7 @@ const BlogDetails = async ({ params }: PageProps) => {
                     <section className="container mx-auto p-8 pb-20 text-center">
                         <div>
                             <h1 className="text-4xl font-bold mb-8">{page.title.rendered}</h1>
-                            <div className="mx-auto max-w-3xl text-justify" dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
+                            <div className="mx-auto max-w-3xl text-justify wp-content" dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
                         </div>
                     </section>
             </>
@@ -49,7 +49,7 @@ const BlogDetails = async ({ params }: PageProps) => {
         return (
             <>
                 <SimpleHeader />
-                <p className="text-center py-20">Erro ao carregar o post. Tente novamente mais tarde.</p>
+                <p className="text-center py-20">Error loading the post. Please try again later.</p>
             </>
         );
     }

@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
                     <div>
                         <h3 className="text-xl font-bold mb-4">Contentor House</h3>
                         <p className="mb-4 text-gray-400">
-                            Transformando containers em espaços de vida sustentáveis e modernos em Faro, Portugal.
+                            Transforming containers into sustainable and modern living spaces in Faro, Portugal.
                         </p>
                         <div className="flex space-x-4 mt-6">
                             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
@@ -41,31 +41,31 @@ const Footer: React.FC = () => {
 
                     {/* Quick Links */}
                     <div>
-                        <h3 className="text-xl font-bold mb-4">Links Rápidos</h3>
+                        <h3 className="text-xl font-bold mb-4">Quick Links</h3>
                         <ul className="space-y-2">
-                            <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors">Projetos</Link></li>
+                            <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors">Projects</Link></li>
                             <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
-                            <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">Sobre Nós</Link></li>
-                            <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contato</Link></li>
+                            <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
+                            <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
                         </ul>
                     </div>
 
                     {/* Services */}
                     <div>
-                        <h3 className="text-xl font-bold mb-4">Serviços</h3>
+                        <h3 className="text-xl font-bold mb-4">Services</h3>
                         <ul className="space-y-2">
-                            <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors">Casas Container</Link></li>
-                            <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors">Escritórios Container</Link></li>
-                            <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors">Design Personalizado</Link></li>
-                            <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors">Consultoria</Link></li>
+                            <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors">Container Homes</Link></li>
+                            <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors">Container Offices</Link></li>
+                            <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors">Custom Design</Link></li>
+                            <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors">Consulting</Link></li>
                         </ul>
                     </div>
 
                     {/* Contact Info */}
                     <div>
-                        <h3 className="text-xl font-bold mb-4">Contato</h3>
+                        <h3 className="text-xl font-bold mb-4">Contact</h3>
                         <address className="not-italic text-gray-400">
-                            <p className="mb-2">Rua das Palmeiras, 123</p>
+                            <p className="mb-2">123 Palm Street</p>
                             <p className="mb-2">Faro, Portugal</p>
                             <p className="mb-2">
                                 <a href="tel:+351912345678" className="hover:text-white transition-colors">+351 912 345 678</a>
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
 
                 {/* Bottom Bar with Copyright */}
                 <div className="pt-8 mt-8 border-t border-gray-800 text-center text-gray-500">
-                    <p>&copy; {currentYear} Contentor House. Todos os direitos reservados.</p>
+                    <p>&copy; {currentYear} Contentor House. All rights reserved.</p>
                 </div>
             </div>
         </footer>

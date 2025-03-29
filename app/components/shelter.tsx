@@ -49,7 +49,7 @@ const ShelterList = async () => {
         );
     } catch (error) {
         console.error("Error fetching shelters:", error);
-        return <p className="text-center">Erro ao carregar abrigos. Tente novamente mais tarde.</p>;
+        return <p className="text-center">Error loading shelters. Please try again later.</p>;
     }
 };
 
