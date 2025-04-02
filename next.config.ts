@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
             {
                 protocol: 'http',
                 hostname: 'contentorhouse.pt',
+            },
+            {
+                protocol: 'https',
+                hostname: 'api.contentorhouse.pt',
             }
         ],
         formats: ['image/avif', 'image/webp'],
@@ -22,17 +26,6 @@ const nextConfig: NextConfig = {
     // output: 'export',
     generateEtags: false,
 
-    async rewrites() {
-        return [
-            {
-            source: "/api/wp/:path*",
-            destination: "https://contentorhouse.dns.dominios.pt/wp-json/wp/v2/:path*",
-            },
-        ];
-    }
-
 };
-
-  
 
 export default nextConfig;
