@@ -20,7 +20,19 @@ const nextConfig: NextConfig = {
     poweredByHeader: false,
     compress: true,
     // output: 'export',
-    generateEtags: false
+    generateEtags: false,
+
+    async rewrites() {
+        return [
+            {
+            source: "/api/wp/:path*",
+            destination: "https://contentorhouse.dns.dominios.pt/wp-json/wp/v2/:path*",
+            },
+        ];
+    }
+
 };
+
+  
 
 export default nextConfig;

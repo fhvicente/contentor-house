@@ -24,7 +24,7 @@ const Form: React.FC = () => {
         
         try {
             const formData = new FormData(event.target as HTMLFormElement);
-            const response = await fetch('http://contentorhouse.pt/wp-json/contact-form-7/v1/contact-forms/f7f6889/feedback', {
+            const response = await fetch('http://api.contentorhouse.pt/wp-json/contact-form-7/v1/contact-forms/f7f6889/feedback', {
                 method: 'POST',
                 body: formData
             });
