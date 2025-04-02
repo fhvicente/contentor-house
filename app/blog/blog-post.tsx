@@ -12,15 +12,16 @@ const BlogPost: React.FC<BlogPostProps> = ({
     slug
 }) => {
     return (
-        <div className="">
-            <p className="text-2xl m-5 mx-auto">
-                {title}
-            </p>
-            <Link href={`/blog/${slug}`}className="text-lg text-teal-800 font-semibold mb-4">
-                <Button className="cursor-pointer">Learn more</Button>
+        <div className="py-4 md:py-5">
+            <h2 
+                className="text-xl md:text-2xl font-medium mb-3 md:mb-4"
+                dangerouslySetInnerHTML={{ __html: title }}
+            />
+            <Link href={`/blog/${slug}`}>
+                <Button className="text-sm md:text-base cursor-pointer">Read Article</Button>
             </Link>
-            <div className="m-5">
-                <hr />
+            <div className="mt-4 md:mt-5">
+                <hr className="border-gray-200" />
             </div>
         </div>
     );

@@ -9,7 +9,6 @@ interface BlogPostData {
     title: {
         rendered: string;
     };
-    author?: string;
 }
 
 export const dynamic = 'force-static';
@@ -22,18 +21,22 @@ const Blog = async () => {
     return (
         <>
             <SimpleHeader />
-                <section className="container m-10 mx-auto">
-                    <h1 className="text-4xl bold text-center font-bold mb-8">Blog</h1>
-                    <div className="max-w-2xl mx-auto">
-                        {BlogPosts.map(post => (
+            <section className="container px-4 py-8 md:py-10 mx-auto">
+                <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8">Blog</h1>
+                <div className="max-w-2xl mx-auto">
+                    {BlogPosts.length > 0 ? (
+                        BlogPosts.map(post => (
                             <BlogPost
                                 key={post.id}
                                 title={post.title.rendered}
                                 slug={post.slug}
                             />
-                        ))}
-                    </div>
-                </section>
+                        ))
+                    ) : (
+                        <p className="text-center text-gray-600 py-10">No blog posts found. Check back soon!</p>
+                    )}
+                </div>
+            </section>
         </>
     );
 };

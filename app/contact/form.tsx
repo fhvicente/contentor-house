@@ -1,49 +1,43 @@
 'use client';
 
-import React, { useState } from "react"
+import React, { useState } from "react";
 import Input from '../components/input';
 import Textarea from '../components/textarea';
 import Button from '../components/button';
 
-// Simple interface for validation errors
-interface ValidationError {
-    field: string;
-    message: string;
-}
-
 const Form: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [formErrors, setFormErrors] = useState<{[key: string]: string}>({});
     const [formMessage, setFormMessage] = useState('');
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setFormErrors({});
         setFormMessage('');
         setIsSubmitting(true);
         
         try {
             const formData = new FormData(event.target as HTMLFormElement);
-            const response = await fetch('http://api.contentorhouse.pt/wp-json/contact-form-7/v1/contact-forms/f7f6889/feedback', {
+            
+            formData.append('_wpcf7', '18');
+            formData.append('_wpcf7_version', '5.7.7');
+            formData.append('_wpcf7_locale', 'en_US');
+            formData.append('_wpcf7_unit_tag', `wpcf7-f18-p${Date.now()}`);
+            formData.append('_wpcf7_container_post', '0');
+            
+            const response = await fetch('http://api.contentorhouse.pt/wp-json/contact-form-7/v1/contact-forms/18/feedback', {
                 method: 'POST',
-                body: formData
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                },
+                mode: 'no-cors'
             });
             
-            const data = await response.json();
+            setFormMessage('Thank you for your message!');
+            (event.target as HTMLFormElement).reset();
             
-            if (data.status === 'validation_failed' && data.invalid_fields) {
-                const errors: {[key: string]: string} = {};
-                data.invalid_fields.forEach((field: ValidationError) => {
-                    errors[field.field] = field.message;
-                });
-                setFormErrors(errors);
-            } else {
-                setFormMessage(data.message || 'Thank you for your message!');
-                (event.target as HTMLFormElement).reset();
-            }
         } catch (error) {
-            console.error('Submission error:', error);
-            setFormMessage('An error occurred. Please try again later.');
+            console.error('Error to send the form:', error);
+            setFormMessage('Error: ' + (error instanceof Error ? error.message : String(error)));
         } finally {
             setIsSubmitting(false);
         }
@@ -66,9 +60,6 @@ const Form: React.FC = () => {
                         id="full_name"
                         required={true}
                     />
-                    {formErrors['your-name'] && (
-                        <p className="text-red-500 mt-1">{formErrors['your-name']}</p>
-                    )}
                 </div>
                 
                 <div>
@@ -79,9 +70,6 @@ const Form: React.FC = () => {
                         id="email"
                         required={true}
                     />
-                    {formErrors['your-email'] && (
-                        <p className="text-red-500 mt-1">{formErrors['your-email']}</p>
-                    )}
                 </div>
                 
                 <div>
@@ -92,9 +80,6 @@ const Form: React.FC = () => {
                         id="subject"
                         required={true}
                     />
-                    {formErrors['your-subject'] && (
-                        <p className="text-red-500 mt-1">{formErrors['your-subject']}</p>
-                    )}
                 </div>
                 
                 <div>
@@ -104,14 +89,11 @@ const Form: React.FC = () => {
                         id="message" 
                         required={true}
                     />
-                    {formErrors['your-message'] && (
-                        <p className="text-red-500 mt-1">{formErrors['your-message']}</p>
-                    )}
                 </div>
 
                 <Button 
                     type="submit" 
-                    className="w-40" 
+                    className="w-40 cursor-pointer" 
                     disabled={isSubmitting}
                 >
                     {isSubmitting ? 'Sending...' : 'Submit'}
