@@ -12,8 +12,8 @@ interface MediaItem {
 }
 
 export default async function FeaturesThird() {
-    // ID of the image you want to show
-    const imageId = 27; // Replace with the real ID of your image
+    
+    const imageId = 27;
     
     let image: MediaItem | null = null;
     
