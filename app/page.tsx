@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
             <ShelterList />
             <FeaturesSecond />
             <FeaturesThird />
-            <Testimonials />
+            {/* <Testimonials /> */}
         </>
     );
 };
