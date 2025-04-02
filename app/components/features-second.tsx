@@ -5,15 +5,14 @@ import { reqUrl, staticFetchConfig } from '../config';
 
 interface MediaItem {
     id: number,
-    source_url: string,
+    link: string,
     title: {
         rendered: string
     }
 }
 
 export default async function FeaturesSecond() {
-    // ID da imagem que você quer mostrar
-    const imageId = 45; // Substitua pelo ID real da sua imagem
+    const imageId = 45;
     
     let image: MediaItem | null = null;
     
@@ -36,13 +35,13 @@ export default async function FeaturesSecond() {
                             <Image 
                                 width={900} 
                                 height={500} 
-                                src={image.source_url}
+                                src={image.link}
                                 alt={image.title.rendered}
                                 className='rounded-2xl'
                             />
                         ) : (
                             <div className="bg-gray-800 w-full h-[300px] flex items-center justify-center">
-                                <p className="text-white">Imagem não encontrada</p>
+                                <p className="text-white">Image not found.</p>
                             </div>
                         )}
                     </div>
