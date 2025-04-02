@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
             {
                 protocol: 'https',
                 hostname: 'api.contentorhouse.pt',
+            },
+            {
+                protocol: 'http',
+                hostname: 'api.contentorhouse.pt',
             }
         ],
         formats: ['image/avif', 'image/webp'],

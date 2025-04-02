@@ -1,4 +1,4 @@
-export const reqUrl = 'http://api.contentorhouse.pt/wp-json/wp/v2';
+export const reqUrl = 'https://api.contentorhouse.pt/wp-json/wp/v2';
 
 export const fetchConfig = {
   next: { 
