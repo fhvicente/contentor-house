@@ -12,7 +12,7 @@ interface MediaItem {
 }
 
 export default async function FeaturesSecond() {
-    const imageId = 45;
+    const imageId = 22;
     
     let image: MediaItem | null = null;
     
