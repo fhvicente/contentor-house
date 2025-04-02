@@ -5,7 +5,7 @@ import { reqUrl, staticFetchConfig } from '../config';
 
 interface MediaItem {
     id: number,
-    link: string,
+    source_url: string,
     title: {
         rendered: string
     }
@@ -35,7 +35,7 @@ export default async function FeaturesSecond() {
                             <Image 
                                 width={900} 
                                 height={500} 
-                                src={image.link}
+                                src={image.source_url}
                                 alt={image.title.rendered}
                                 className='rounded-2xl'
                             />
